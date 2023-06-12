@@ -12,7 +12,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
 
   Widget _selectedScreen(int i) {
     if (i == 1) {
-      return Container();
+      return const RoutinesScreen();
     } else if (i == 2) {
       return Container();
     } else {
