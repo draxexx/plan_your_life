@@ -24,16 +24,30 @@ class CardItem extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      contentText(context, "Monday", false, MyColors.white, 35),
+                      textBuilder(
+                        AppLocalizations.of(context).translate("monday"),
+                        color: MyColors.white,
+                        textType: TextType.header_2,
+                        shadows: shadow1,
+                      ),
+                      // contentText(context, "Monday", false, MyColors.white, 35),
                       circularSlider(30, 90, 20, MyColors.white,
                           Theme.of(context).primaryColor, MyColors.white),
                       Column(
                         children: [
-                          contentText(context, "15 tasks left", false,
-                              MyColors.white, 18),
+                          textBuilder(
+                            "15 tasks left",
+                            color: MyColors.white,
+                            textType: TextType.header_3,
+                            shadows: shadow1,
+                          ),
                           const SizedBox(height: 5),
-                          contentText(context, "3 tasks completed", false,
-                              MyColors.white, 18),
+                          textBuilder(
+                            "3 tasks completed",
+                            color: MyColors.white,
+                            textType: TextType.header_3,
+                            shadows: shadow1,
+                          ),
                         ],
                       ),
                     ],
@@ -47,13 +61,10 @@ class CardItem extends StatelessWidget {
                 child: circleContainer(
                   80,
                   Center(
-                    child: Text(
+                    child: textBuilder(
                       "5",
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: getProportionateScreenWidth(45),
-                        fontWeight: FontWeight.w900,
-                      ),
+                      color: Theme.of(context).primaryColor,
+                      textType: TextType.header_4,
                     ),
                   ),
                   MyColors.white,
