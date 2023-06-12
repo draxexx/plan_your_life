@@ -1,0 +1,185 @@
+{
+  "app_title": "Week Planner",
+
+  "home": "Home",
+  "charts": "Charts",
+  "settings": "Settings",
+
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "wednesday": "Wednesday",
+  "thursday": "Thursday",
+  "friday": "Friday",
+  "saturday": "Saturday",
+  "sunday": "Sunday",
+
+  "what_is_your_task": "What is your task?",
+  "select_a_category": "Select a category",
+  "why_am_i_doing_this_task": "Why am I doing this task? (optional)",
+
+  "tasks": "Tasks",
+
+  "save": "Save",
+
+  "step": "Step",
+
+  "okay": "Okay",
+  "add": "Add",
+  "update": "Update",
+
+  "select": "Select",
+
+  "warning": "Warning",
+  "yes": "Yes",
+  "no": "No",
+
+  "upgrade_to_pro": "Upgrade to Pro",
+  "backup": "Backup",
+  "lock": "Lock",
+  "notifications": "Notifications",
+  "quotes": "Quotes",
+  "about": "About",
+  "contact_us": "Contact Us",
+
+  "what_is_your_routine_title": "What is your routine title?",
+
+  "you_can_create_routines": "You can create different routines and switch between them.",
+
+  "would_you_like_to_delete_routine": "Would you like to delete this routine with its tasks?",
+
+  "selected_time_must_be_in_the_future": "Selected time must be in the future",
+
+  "you_need_to_enter_task_title": "You need to enter your task title.",
+  "you_need_to_enter_a_step": "You need to enter all empty steps inputs.",
+  "you_need_to_select_start_time": "You need to select a start time.",
+  "you_need_to_select_finish_time": "You need to select a end time.",
+  "you_need_to_select_a_category": "You need to select a category.",
+
+  "finish_time_must_be_after_start_time": "End time must be after the start time.",
+
+  "why_am_i_doing_this": "Why am I doing this?",
+
+  "you_havent_finished_all_steps": "You haven't finished all the steps, would you like to still complete this task?",
+
+  "you_havent_finished_this_task": "You haven't finished this task yet?",
+
+  "would_you_like_to_copy_from_last_week": "Would you like to copy all last week's tasks?",
+
+  "accomplishment_rate": "Accomplishment Rate",
+
+  "this_week": "This week",
+  "next_week": "Next week",
+
+  "copying_tasks": "Copying tasks...",
+
+  "cant_add_past_day": "You can't add tasks for the past day.",
+
+  "copy_tasks_from_last_week": "Click to copy tasks from last week",
+
+  "personal_skills": "Personal Skills",
+
+  "my_points": "points",
+
+  "health_fitness": "Health/Fitness",
+  "confidence": "Confidence",
+  "socialness": "Socialness",
+
+  "awful": "Awful",
+  "very_bad": "Very Bad",
+  "bad": "Bad",
+  "normal": "Normal",
+  "good": "Good",
+  "excellent": "Excellent",
+
+  "number_of_accomplished_tasks": "Number of Accomplished Tasks",
+  "categories_you_have": "Categories You Have",
+  "most_productive_weeks": "Most Productive Weeks of This Year",
+  "most_repeated_tasks": "Most Repeated Tasks",
+
+  "enter_pass_code": "Enter Passcode",
+
+  "cancel": "Cancel",
+
+  "your_password_lenght_must_be_4_characters": "Your password length must be 4 characters",
+  "your_password_shouldnt_contain": "Your password must only contain numbers",
+
+  "unlock": "Unlock",
+
+  "error": "Error",
+  "would_you_like_to_unlock_password": "Would you like to unlock password?",
+
+  "lock_title_1": "Secure your data",
+  "lock_title_2": "4 characters for pin code",
+  "lock_title_3": "Don't forget the pin code",
+
+  "lock_content_1": "You can assign a pin code for the main screen of the application. In this way, you can prevent seeing your data by others.",
+  "lock_content_2": "You should make your pin code 4 length characters and it needs to only contain digits.",
+  "lock_content_3": "You should note down your pin code somewhere because if you forget that there will be no chance to open the application except re-installing it.",
+
+  "quote_1": "It’s only after you’ve stepped outside your comfort zone that you begin to change, grow, and transform.",
+  "quote_2": "Attitude is a choice. Happiness is a choice. Optimism is a choice. Kindness is a choice. Giving is a choice. Respect is a choice. Whatever choice you make makes you. Choose wisely.",
+  "quote_3": "Do what is right, not what is easy nor what is popular.",
+  "quote_4": "Cry. Forgive. Learn. Move on. Let your tears water the seeds of your future happiness.",
+  "quote_5": "Without ambition one starts nothing. Without work one finishes nothing. The prize will not be sent to you. You have to win it.",
+  "quote_6": "At the end of the day, let there be no excuses, no explanations, no regrets.",
+  "quote_7": "Although the world is full of suffering, it is full also of the overcoming of it.",
+  "quote_8": "Whatever the mind can conceive and believe, it can achieve.",
+  "quote_9": "Action may not always bring happiness, but there is no happiness without action.",
+  "quote_10": "Only he who attempts the absurd is capable of achieving the impossible.",
+  "quote_11": "Don't wish it were easier. Wish you were better.",
+  "quote_12": "Be the change that you wish to see in the world.",
+  "quote_13": "All our dreams can come true, if we have the courage to pursue them.",
+  "quote_14": "The secret of getting ahead is getting started.",
+  "quote_15": "I’ve missed more than 9,000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life and that is why I succeed.",
+  "quote_16": "Don’t limit yourself. Many people limit themselves to what they think they can do. You can go as far as your mind lets you. What you believe, remember, you can achieve.",
+  "quote_17": "It’s hard to beat a person who never gives up.",
+  "quote_18": "If people are doubting how far you can go, go so far that you can’t hear them anymore.",
+  "quote_19": "We need to accept that we won’t always make the right decisions, that we’ll screw up royally sometimes – understanding that failure is not the opposite of success, it’s part of success.",
+  "quote_20": "You can either experience the pain of discipline or the pain of regret. The choice is yours.",
+  "quote_21": "Your passion is waiting for your courage to catch up.",
+  "quote_22": "Hold the vision, trust the process.",
+  "quote_23": "Without struggle, success has no value.",
+  "quote_24": "When they say you can't, they show you their limits, not yours.",
+  "quote_25": "The human spirit is like an elastic band. The more you stretch, the greater your capacity.",
+  "quote_26": "The only limits in your life are those that you set yourself.",
+  "quote_27": "We cannot become what we want to be by remaining what we are.",
+  "quote_28": "Life always begins with one step outside of your comfort zone.",
+  "quote_29": "We are so accustomed to the comforts of 'I cannot', 'I do not want to' and 'it is too difficult' that we forget to realize when we stop doing things for ourselves and expect others to dance around us, we are not achieving greatness. We have made ourselves weak.",
+  "quote_30": "Sometimes it is good to be in uncomfortable situations because it is in finding our way out of such difficulties that we learn valuable lessons.",
+
+  "week_1": "Week 1",
+  "week_2": "Week 2",
+  "week_3": "Week 3",
+  "week_4": "Week 4",
+  "week_5": "Week 5",
+
+  "jan": "Jan",
+  "feb": "Feb",
+  "mar": "Mar",
+  "apr": "Apr",
+  "may": "May",
+  "june": "June",
+  "july": "July",
+  "aug": "Aug",
+  "sept": "Sept",
+  "oct": "Oct",
+  "nov": "Nov",
+  "dec": "Dec",
+
+  "work": "Work",
+  "sport": "Sport",
+  "study": "Study",
+  "nutrition": "Nutrition",
+  "cook": "Cook",
+  "enjoyable_activities": "Enjoyable Activities",
+  "self_care_woman": "Self-Care (Woman)",
+  "self_care_man": "Self-Care (Man)",
+  "cleaning": "Cleaning",
+  "dating": "Dating",
+  "meeting": "Meeting",
+  "meditation_woman": "Meditation (Woman)",
+  "meditation_man": "Meditation (Man)",
+  "reading": "Reading",
+  "other_activities": "Other Activities",
+  "shopping": "Shopping"
+}
