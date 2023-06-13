@@ -61,7 +61,7 @@ class _CardListState extends State<CardList> {
       count++;
     }
     setState(() {
-      _initialPage = 3;
+      _initialPage = 0;
     });
   }
 
@@ -122,7 +122,8 @@ class _CardListState extends State<CardList> {
           opacity: _initialPage == index ? 1 : 0.4,
           child: Transform.rotate(
             angle: math.pi * value,
-            child: InkWell(
+            child: GestureDetector(
+              onTap: () {},
               // onTap: () {
               //   Map<String, dynamic> arguments = {
               //     "routine": widget.routine,

@@ -30,7 +30,6 @@ class CardItem extends StatelessWidget {
                         textType: TextType.header_2,
                         shadows: shadow1,
                       ),
-                      // contentText(context, "Monday", false, MyColors.white, 35),
                       circularSlider(30, 90, 20, MyColors.white,
                           Theme.of(context).primaryColor, MyColors.white),
                       Column(

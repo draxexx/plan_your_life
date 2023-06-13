@@ -14,8 +14,6 @@ class TopBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  // child: headerText(
-                  //     context, "app_title", true, MyColors.black, 20),
                   child: textBuilder(
                     AppLocalizations.of(context).translate("app_title"),
                     textType: TextType.header_1,
@@ -31,7 +29,7 @@ class TopBar extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 5),
-                    InkWell(
+                    GestureDetector(
                       onTap: () {},
                       child: circleContainer(
                         20,
@@ -49,7 +47,7 @@ class TopBar extends StatelessWidget {
               ],
             ),
           ),
-          InkWell(
+          GestureDetector(
             onTap: () {},
             child: circleContainer(
               40,

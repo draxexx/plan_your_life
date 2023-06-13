@@ -13,6 +13,7 @@ export 'dart:async';
 // ==================================================
 export 'package:convex_bottom_bar/convex_bottom_bar.dart';
 export 'package:sleek_circular_slider/sleek_circular_slider.dart';
+export 'package:get/get.dart';
 // =============================================
 // ============ LOCAL FILES EXPORT =============
 // =============================================
