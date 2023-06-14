@@ -18,7 +18,7 @@ class _CardListState extends State<CardList> {
 
   // List<RoutineTasksGroupByDate> _dayList = [];
 
-  List<DateTime> _currentWeek = [];
+  final List<DateTime> _currentWeek = [];
 
   // void _groupByTasks() {
   //   _dayList = [];
@@ -123,7 +123,9 @@ class _CardListState extends State<CardList> {
           child: Transform.rotate(
             angle: math.pi * value,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () => Get.to(
+                const TasksScreen(),
+              ),
               // onTap: () {
               //   Map<String, dynamic> arguments = {
               //     "routine": widget.routine,
@@ -132,7 +134,7 @@ class _CardListState extends State<CardList> {
               //   Navigator.of(context)
               //       .pushNamed(DetailScreen.routeName, arguments: arguments);
               // },
-              child: CardItem(),
+              child: const CardItem(),
             ),
           ),
         );

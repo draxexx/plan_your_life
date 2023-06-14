@@ -14,6 +14,8 @@ export 'dart:async';
 export 'package:convex_bottom_bar/convex_bottom_bar.dart';
 export 'package:sleek_circular_slider/sleek_circular_slider.dart';
 export 'package:get/get.dart';
+export 'package:font_awesome_flutter/font_awesome_flutter.dart';
+export 'package:flutter_svg/flutter_svg.dart';
 // =============================================
 // ============ LOCAL FILES EXPORT =============
 // =============================================
