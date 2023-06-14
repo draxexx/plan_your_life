@@ -15,7 +15,7 @@ class _RoutinesScreenState extends State<RoutinesScreen> {
       child: const SingleChildScrollView(
         child: Column(
           children: [
-            TopBar(),
+            // TopBar(),
             CardList(),
           ],
         ),

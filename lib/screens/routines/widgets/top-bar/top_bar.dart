@@ -19,47 +19,22 @@ class TopBar extends StatelessWidget {
                     textType: TextType.header_1,
                   ),
                 ),
-                Row(
-                  children: [
-                    Container(
-                      child: textBuilder(
-                        AppLocalizations.of(context)
-                            .translate("please_add_a_routine"),
-                        textType: TextType.subText1,
-                      ),
-                    ),
-                    const SizedBox(width: 5),
-                    GestureDetector(
-                      onTap: () {},
-                      child: circleContainer(
-                        20,
-                        Icon(
-                          Icons.add,
-                          color: MyColors.white,
-                          size: getProportionateScreenWidth(15),
-                        ),
-                        MyColors.blue,
-                        MyColors.blue,
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {},
-            child: circleContainer(
-              40,
-              Icon(
-                Icons.collections_bookmark,
-                color: MyColors.white,
-                size: getProportionateScreenWidth(20),
-              ),
-              Colors.grey,
-              Colors.grey,
-            ),
-          ),
+          // GestureDetector(
+          //   onTap: () {},
+          //   child: circleContainer(
+          //     40,
+          //     Icon(
+          //       Icons.collections_bookmark,
+          //       color: MyColors.white,
+          //       size: getProportionateScreenWidth(20),
+          //     ),
+          //     Colors.grey,
+          //     Colors.grey,
+          //   ),
+          // ),
         ],
       ),
     );
