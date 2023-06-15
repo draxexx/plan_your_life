@@ -39,14 +39,13 @@ class CustomAppIcon extends StatelessWidget {
           onPressed: onPressed,
         );
       } else {
-        return IconButton(
-          icon: Icon(
+        return GestureDetector(
+          onTap: onPressed,
+          child: Icon(
             icon,
             color: color,
             size: getProportionateScreenWidth(size),
           ),
-          splashRadius: 16,
-          onPressed: onPressed,
         );
       }
     }

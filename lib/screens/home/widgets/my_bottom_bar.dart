@@ -14,7 +14,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
     if (i == 1) {
       return const RoutinesScreen();
     } else if (i == 2) {
-      return Container();
+      return const SettingsScreen();
     } else {
       return Container();
     }

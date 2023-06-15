@@ -57,10 +57,12 @@ class _TasksScreenState extends State<TasksScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    const CustomBackButton(),
                     textBuilder(
                       "Monday",
                       textType: TextType.header_3,
                       color: Theme.of(context).hintColor,
+                      textAlign: TextAlign.center,
                     ),
                     PopupMenuButton(
                       icon: CustomAppIcon(

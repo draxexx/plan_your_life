@@ -23,3 +23,8 @@ export './tasks/widgets/create-task/create_task_bottom_sheet.dart';
 export './tasks/widgets/create-task/task_tags.dart';
 export './tasks/widgets/create-task/select_time.dart';
 export './tasks/widgets/create-task/reminder.dart';
+
+// Settings Screen
+
+export './settings/settings_screen.dart';
+export './settings/widgets/settings_item.dart';
