@@ -13,3 +13,5 @@ export './routines/widgets/top-bar/top_bar.dart';
 // Tasks Screen
 
 export './tasks/tasks_screen.dart';
+export './tasks/widgets/tasks_list.dart';
+export './tasks/widgets/task_item.dart';

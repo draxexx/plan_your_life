@@ -4,3 +4,5 @@ BorderRadiusGeometry? topBorderRadius = const BorderRadius.only(
   topRight: Radius.circular(32),
   topLeft: Radius.circular(32),
 );
+
+BorderRadiusGeometry? cardBorderRadius = BorderRadius.circular(16);

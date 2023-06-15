@@ -27,7 +27,7 @@ class CardItem extends StatelessWidget {
                       textBuilder(
                         AppLocalizations.of(context).translate("monday"),
                         color: MyColors.white,
-                        textType: TextType.header_2,
+                        textType: TextType.header_7,
                         shadows: shadow1,
                       ),
                       circularSlider(30, 90, 20, MyColors.white,
@@ -63,7 +63,7 @@ class CardItem extends StatelessWidget {
                     child: textBuilder(
                       "5",
                       color: Theme.of(context).primaryColor,
-                      textType: TextType.header_4,
+                      textType: TextType.header_6,
                     ),
                   ),
                   MyColors.white,

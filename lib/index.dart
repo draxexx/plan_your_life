@@ -16,6 +16,7 @@ export 'package:sleek_circular_slider/sleek_circular_slider.dart';
 export 'package:get/get.dart';
 export 'package:font_awesome_flutter/font_awesome_flutter.dart';
 export 'package:flutter_svg/flutter_svg.dart';
+export 'package:percent_indicator/percent_indicator.dart';
 // =============================================
 // ============ LOCAL FILES EXPORT =============
 // =============================================

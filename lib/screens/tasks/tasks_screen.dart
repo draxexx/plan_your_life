@@ -11,7 +11,15 @@ class _TasksScreenState extends State<TasksScreen>
     with TickerProviderStateMixin {
   TabController? _tabController;
 
-  final int _activeIndex = 0;
+  int _activeIndex = 0;
+
+  void _setActiveIndex() {
+    _tabController!.addListener(() {
+      setState(() {
+        _activeIndex = _tabController!.index;
+      });
+    });
+  }
 
   void _setTabBar() {
     _tabController = TabController(
@@ -19,6 +27,8 @@ class _TasksScreenState extends State<TasksScreen>
       vsync: this,
       initialIndex: _activeIndex,
     );
+
+    _setActiveIndex();
   }
 
   @override
@@ -49,11 +59,11 @@ class _TasksScreenState extends State<TasksScreen>
                   children: [
                     textBuilder(
                       "Monday",
-                      textType: TextType.header_1,
+                      textType: TextType.header_3,
                       color: Theme.of(context).hintColor,
                     ),
                     CustomAppIcon(
-                      icon: Icons.add,
+                      icon: Icons.more_horiz,
                       onPressed: () {},
                       color: Theme.of(context).scaffoldBackgroundColor,
                       size: 32,
@@ -70,18 +80,27 @@ class _TasksScreenState extends State<TasksScreen>
                 tabs: [
                   textBuilder(
                     "ONGOING",
-                    color: Theme.of(context).hintColor,
+                    color: _activeIndex == 0
+                        ? Theme.of(context).hintColor
+                        : Theme.of(context).unselectedWidgetColor,
                     fontWeight: FontWeight.w700,
+                    textType: TextType.header_4,
                   ),
                   textBuilder(
                     "PENDING",
-                    color: Theme.of(context).hintColor,
+                    color: _activeIndex == 1
+                        ? Theme.of(context).hintColor
+                        : Theme.of(context).unselectedWidgetColor,
                     fontWeight: FontWeight.w700,
+                    textType: TextType.header_4,
                   ),
                   textBuilder(
                     "COMPLETED",
-                    color: Theme.of(context).hintColor,
+                    color: _activeIndex == 2
+                        ? Theme.of(context).hintColor
+                        : Theme.of(context).unselectedWidgetColor,
                     fontWeight: FontWeight.w700,
+                    textType: TextType.header_4,
                   ),
                 ],
               ),
@@ -99,10 +118,10 @@ class _TasksScreenState extends State<TasksScreen>
               ),
               child: TabBarView(
                 controller: _tabController,
-                children: [
-                  Container(),
-                  Container(),
-                  Container(),
+                children: const [
+                  TasksList(),
+                  TasksList(),
+                  TasksList(),
                 ],
               ),
             ),

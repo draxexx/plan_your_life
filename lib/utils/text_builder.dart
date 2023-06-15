@@ -41,24 +41,45 @@ TextParameterModel _textParameter(TextType textType) {
       );
     case TextType.header_2:
       return const TextParameterModel(
-        fontSize: 35,
+        fontSize: 22,
         lineHeight: 0,
         letterSpacing: 1,
         fontWeight: FontWeight.w700,
       );
     case TextType.header_3:
       return const TextParameterModel(
-        fontSize: 18,
+        fontSize: 20,
         lineHeight: 0,
         letterSpacing: 1,
         fontWeight: FontWeight.w700,
       );
     case TextType.header_4:
       return const TextParameterModel(
+        fontSize: 14,
+        lineHeight: 0,
+        letterSpacing: 1,
+        fontWeight: FontWeight.w700,
+      );
+    case TextType.header_5:
+      return const TextParameterModel(
+        fontSize: 16,
+        lineHeight: 0,
+        letterSpacing: 1,
+        fontWeight: FontWeight.w700,
+      );
+    case TextType.header_6:
+      return const TextParameterModel(
         fontSize: 45,
         lineHeight: 0,
         letterSpacing: 1,
-        fontWeight: FontWeight.w900,
+        fontWeight: FontWeight.w700,
+      );
+    case TextType.header_7:
+      return const TextParameterModel(
+        fontSize: 35,
+        lineHeight: 0,
+        letterSpacing: 1,
+        fontWeight: FontWeight.w700,
       );
     case TextType.body_1:
       return const TextParameterModel(
@@ -69,17 +90,31 @@ TextParameterModel _textParameter(TextType textType) {
       );
     case TextType.subText1:
       return const TextParameterModel(
-        fontSize: 15,
+        fontSize: 12,
         lineHeight: 0,
         letterSpacing: 1,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w700,
       );
     case TextType.subText2:
+      return const TextParameterModel(
+        fontSize: 14,
+        lineHeight: 0,
+        letterSpacing: 1,
+        fontWeight: FontWeight.w500,
+      );
+    case TextType.subText3:
       return const TextParameterModel(
         fontSize: 10,
         lineHeight: 0,
         letterSpacing: 1,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w400,
+      );
+    case TextType.subText4:
+      return const TextParameterModel(
+        fontSize: 8,
+        lineHeight: 0,
+        letterSpacing: 1,
+        fontWeight: FontWeight.w400,
       );
     case TextType.textButton:
       return const TextParameterModel(
