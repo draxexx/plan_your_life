@@ -15,3 +15,7 @@ export './routines/widgets/top-bar/top_bar.dart';
 export './tasks/tasks_screen.dart';
 export './tasks/widgets/tasks_list.dart';
 export './tasks/widgets/task_item.dart';
+export './tasks/widgets/task_tags.dart';
+export './tasks/widgets/task_duration.dart';
+export './tasks/widgets/task_progress.dart';
+export './tasks/widgets/task_status_and_subtasks.dart';
