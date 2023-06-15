@@ -62,12 +62,26 @@ class _TasksScreenState extends State<TasksScreen>
                       textType: TextType.header_3,
                       color: Theme.of(context).hintColor,
                     ),
-                    CustomAppIcon(
-                      icon: Icons.more_horiz,
-                      onPressed: () {},
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                      size: 32,
-                    ),
+                    PopupMenuButton(
+                      icon: CustomAppIcon(
+                        icon: Icons.more_horiz,
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                        size: 32,
+                      ),
+                      onSelected: (value) {
+                        if (value == "0") {
+                          showCreateTaskBottomSheet();
+                        }
+                      },
+                      itemBuilder: (BuildContext bc) {
+                        return const [
+                          PopupMenuItem(
+                            value: '0',
+                            child: Text("Create Task"),
+                          ),
+                        ];
+                      },
+                    )
                   ],
                 ),
               ),
@@ -111,7 +125,7 @@ class _TasksScreenState extends State<TasksScreen>
             right: 0,
             bottom: 0,
             child: Container(
-              height: SizeConfig.screenHeight! * 0.8,
+              height: SizeConfig.screenHeight! * 0.75,
               decoration: BoxDecoration(
                 color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: topBorderRadius,

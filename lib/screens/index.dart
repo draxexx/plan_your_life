@@ -14,8 +14,12 @@ export './routines/widgets/top-bar/top_bar.dart';
 
 export './tasks/tasks_screen.dart';
 export './tasks/widgets/tasks_list.dart';
-export './tasks/widgets/task_item.dart';
-export './tasks/widgets/task_tags.dart';
-export './tasks/widgets/task_duration.dart';
-export './tasks/widgets/task_progress.dart';
-export './tasks/widgets/task_status_and_subtasks.dart';
+export './tasks/widgets/task-item/task_item.dart';
+export './tasks/widgets/task-item/task_tags.dart';
+export './tasks/widgets/task-item/task_duration.dart';
+export './tasks/widgets/task-item/task_progress.dart';
+export './tasks/widgets/task-item/task_status_and_subtasks.dart';
+export './tasks/widgets/create-task/create_task_bottom_sheet.dart';
+export './tasks/widgets/create-task/task_tags.dart';
+export './tasks/widgets/create-task/select_time.dart';
+export './tasks/widgets/create-task/reminder.dart';

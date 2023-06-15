@@ -1,4 +1,4 @@
-import '../../../index.dart';
+import '../../../../index.dart';
 
 class TaskDuration extends StatelessWidget {
   const TaskDuration({super.key});
