@@ -20,6 +20,8 @@ class ChartsScreen extends StatelessWidget {
           SizedBox(height: 48),
           TaskActivities(),
           SizedBox(height: 48),
+          MostLabels(),
+          SizedBox(height: 48),
         ],
       ),
     );
