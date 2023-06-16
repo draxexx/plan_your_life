@@ -33,6 +33,8 @@ export './settings/widgets/settings_item.dart';
 
 export './charts/charts_screen.dart';
 export './charts/widgets/accomplishment_rate.dart';
+export './charts/widgets/personal-skills/personal_skills.dart';
+export './charts/widgets/personal-skills/widgets/personal_skills_item.dart';
 export './charts/widgets/task_overview.dart';
 export './charts/widgets/task_overview_percent.dart';
 export './charts/widgets/working-hours/working_hours.dart';
