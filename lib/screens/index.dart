@@ -46,3 +46,4 @@ export './charts/widgets/task-activities/widgets/make_group_data.dart';
 export './charts/widgets/task-activities/widgets/left_titles.dart';
 export './charts/widgets/task-activities/widgets/bottom_titles.dart';
 export './charts/widgets/most-labels/most_labels.dart';
+export './charts/widgets/most-labels/widgets/label_item.dart';

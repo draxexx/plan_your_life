@@ -56,10 +56,41 @@ class _MostLabelsState extends State<MostLabels> {
             ],
           ),
           const SizedBox(height: 16),
-          SizedBox(
-            width: double.infinity,
-            height: SizeConfig.screenHeight! * 0.3,
-            child: _pieChart(),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Expanded(
+                child: SizedBox(
+                  width: double.infinity,
+                  height: SizeConfig.screenHeight! * 0.3,
+                  child: _pieChart(),
+                ),
+              ),
+              SizedBox(
+                width: getProportionateScreenWidth(80),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    LabelItem(
+                      text: "UI Design",
+                      color: MyColors.blue,
+                    ),
+                    LabelItem(
+                      text: "Work",
+                      color: MyColors.red,
+                    ),
+                    LabelItem(
+                      text: "Fitness",
+                      color: MyColors.orange,
+                    ),
+                    LabelItem(
+                      text: "Art",
+                      color: MyColors.purple,
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),

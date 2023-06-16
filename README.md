@@ -1,5 +1,11 @@
-Flutter 3.10.4
+## Flutter
 
-Dart 3.0.3
+3.10.4
 
-DevTools 2.13.1
+## Dart
+
+3.0.3
+
+## DevTools
+
+2.13.1
