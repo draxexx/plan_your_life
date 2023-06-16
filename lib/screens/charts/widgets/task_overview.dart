@@ -52,7 +52,7 @@ class TaskOverview extends StatelessWidget {
                 30,
                 150,
                 20,
-                MyColors.grayLight,
+                MyColors.grayLight20,
                 Theme.of(context).primaryColor,
                 MyColors.black,
                 trackWidth: 18,

@@ -38,7 +38,7 @@ class AccomplishmentRate extends StatelessWidget {
                 30,
                 80,
                 20,
-                MyColors.grayLight,
+                MyColors.grayLight20,
                 Theme.of(context).primaryColor,
                 MyColors.black,
                 trackWidth: 10,
