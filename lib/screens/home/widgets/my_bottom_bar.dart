@@ -16,7 +16,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
     } else if (i == 2) {
       return const SettingsScreen();
     } else {
-      return Container();
+      return const ChartsScreen();
     }
   }
 

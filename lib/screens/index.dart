@@ -28,3 +28,10 @@ export './tasks/widgets/create-task/reminder.dart';
 
 export './settings/settings_screen.dart';
 export './settings/widgets/settings_item.dart';
+
+// Charts Screen
+
+export './charts/charts_screen.dart';
+export './charts/widgets/accomplishment_rate.dart';
+export './charts/widgets/task_overview.dart';
+export './charts/widgets/task_overview_percent.dart';

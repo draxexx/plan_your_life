@@ -30,8 +30,14 @@ class CardItem extends StatelessWidget {
                         textType: TextType.header_7,
                         shadows: shadow1,
                       ),
-                      circularSlider(30, 90, 20, MyColors.white,
-                          Theme.of(context).primaryColor, MyColors.white),
+                      circularSlider(
+                        30,
+                        90,
+                        20,
+                        MyColors.white,
+                        Theme.of(context).primaryColor,
+                        MyColors.white,
+                      ),
                       Column(
                         children: [
                           textBuilder(
