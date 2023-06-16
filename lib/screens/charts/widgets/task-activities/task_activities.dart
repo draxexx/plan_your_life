@@ -102,7 +102,52 @@ class _TaskActivitiesState extends State<TaskActivities> {
         barTouchData: BarTouchData(
           touchTooltipData: BarTouchTooltipData(
             tooltipBgColor: Colors.grey,
-            getTooltipItem: (a, b, c, d) => null,
+            getTooltipItem: (group, groupIndex, rod, rodIndex) {
+              String weekDay;
+              switch (group.x) {
+                case 0:
+                  weekDay = 'Monday';
+                  break;
+                case 1:
+                  weekDay = 'Tuesday';
+                  break;
+                case 2:
+                  weekDay = 'Wednesday';
+                  break;
+                case 3:
+                  weekDay = 'Thursday';
+                  break;
+                case 4:
+                  weekDay = 'Friday';
+                  break;
+                case 5:
+                  weekDay = 'Saturday';
+                  break;
+                case 6:
+                  weekDay = 'Sunday';
+                  break;
+                default:
+                  throw Error();
+              }
+              return BarTooltipItem(
+                '$weekDay\n',
+                const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: (rod.toY - 1).toInt().toString(),
+                    style: const TextStyle(
+                      color: MyColors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              );
+            },
           ),
           touchCallback: (FlTouchEvent event, response) {
             if (response == null || response.spot == null) {
@@ -134,7 +179,7 @@ class _TaskActivitiesState extends State<TaskActivities> {
                     showingBarGroups[touchedGroupIndex].copyWith(
                   barRods:
                       showingBarGroups[touchedGroupIndex].barRods.map((rod) {
-                    return rod.copyWith(toY: avg, color: MyColors.green);
+                    return rod.copyWith(toY: avg, color: MyColors.purple);
                   }).toList(),
                 );
               }
@@ -145,7 +190,7 @@ class _TaskActivitiesState extends State<TaskActivities> {
         borderData: borderData,
         barGroups: showingBarGroups,
         gridData: const FlGridData(
-          show: true,
+          show: false,
           drawHorizontalLine: true,
           drawVerticalLine: false,
         ),
