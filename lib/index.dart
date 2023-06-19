@@ -18,7 +18,7 @@ export 'package:font_awesome_flutter/font_awesome_flutter.dart';
 export 'package:flutter_svg/flutter_svg.dart';
 export 'package:percent_indicator/percent_indicator.dart';
 export 'package:fl_chart/fl_chart.dart';
-
+export 'package:sqflite/sqflite.dart';
 // =============================================
 // ============ LOCAL FILES EXPORT =============
 // =============================================
