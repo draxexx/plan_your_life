@@ -134,9 +134,9 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
     if (isFirstTimeOfDayBeforeOrEqual(
         _taskModel.endTimeOfDay!, _taskModel.startTimeOfDay!)) {
       return "endtime must be future";
-    } else if (isFirstTimeOfDayBeforeOrEqual(
-        _taskModel.startTimeOfDay!, _taskModel.reminderTimeOfDay!)) {
-      return "reminder must be before";
+    } else if (isFirstTimeOfDayAfter(
+        _taskModel.reminderTimeOfDay!, _taskModel.startTimeOfDay!)) {
+      return "reminder must be before or equal";
     } else {
       return "";
     }
