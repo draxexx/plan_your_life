@@ -23,19 +23,24 @@ class TaskStatusAndSubtasks extends StatelessWidget {
             ),
           ],
         ),
-        Row(
-          children: [
-            textBuilder(
-              "SubTasks",
-              textType: TextType.subText1,
-              color: MyColors.grayLight,
-            ),
-            const CustomAppIcon(
-              icon: Icons.keyboard_arrow_down,
-              color: MyColors.grayLight,
-              size: 18,
-            ),
-          ],
+        GestureDetector(
+          onTap: () => showCustomBottomSheet(
+            child: const SubTaskListBottomSheet(),
+          ),
+          child: Row(
+            children: [
+              textBuilder(
+                "SubTasks",
+                textType: TextType.subText1,
+                color: MyColors.grayLight,
+              ),
+              const CustomAppIcon(
+                icon: Icons.keyboard_arrow_down,
+                color: MyColors.grayLight,
+                size: 18,
+              ),
+            ],
+          ),
         ),
         PopupMenuButton(
           padding: const EdgeInsets.all(0),
