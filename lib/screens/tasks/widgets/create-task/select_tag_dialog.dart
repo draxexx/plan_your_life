@@ -1,7 +1,12 @@
 import '../../../../index.dart';
 
 class SelectTagDialog extends StatefulWidget {
-  const SelectTagDialog({super.key});
+  const SelectTagDialog({
+    super.key,
+    required this.selectedId,
+  });
+
+  final Function(int) selectedId;
 
   @override
   State<SelectTagDialog> createState() => _SelectTagDialogState();
@@ -66,7 +71,13 @@ class _SelectTagDialogState extends State<SelectTagDialog> {
                       runSpacing: 8,
                       children: [
                         for (int i = 0; i < 100; i++)
-                          const Label(text: "UI DESIGN"),
+                          GestureDetector(
+                            onTap: () {
+                              widget.selectedId(1);
+                              Get.back();
+                            },
+                            child: const Label(text: "UI DESIGN"),
+                          ),
                       ],
                     ),
                   ),

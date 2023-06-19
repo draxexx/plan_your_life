@@ -12,6 +12,7 @@ abstract class MyColors {
   static const blue = Color(0xFF00A8FF);
   static const grayLight = Color(0xFFA4B0BE);
   static const grayLight20 = Color(0x33A4B0BE);
+  static const grayDark = Color(0xFF636e72);
   static const red = Color(0xFFFF4757);
   static const red20 = Color(0x33FF4757);
   static const orange = Color(0xFFF39C12);

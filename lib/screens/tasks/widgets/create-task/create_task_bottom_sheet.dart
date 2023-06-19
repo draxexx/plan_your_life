@@ -27,9 +27,11 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
   final FocusNode _descriptionFocusNode = FocusNode();
 
   final TaskModel _taskModel = TaskModel();
+  final LabelModel _labelModel = LabelModel();
 
   TimeOfDay? _startTime;
   TimeOfDay? _endTime;
+  TimeOfDay? _reminderTime;
 
   final List<SubTaskInputItem> _subTaskInputs = [];
   final List<String> _subTaskInputsValues = [];
@@ -38,6 +40,18 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
     for (var i in _subTaskInputsValues) {
       print(i);
     }
+
+    _formKey.currentState!.save();
+
+    print(_checkTimes());
+
+    print(_taskModel.label!.id);
+    print(_taskModel.title);
+    print(_taskModel.priority);
+    print(_taskModel.startTime);
+    print(_taskModel.endTime);
+    print(_taskModel.description);
+    print(_taskModel.reminder);
   }
 
   void _addSubTask() {
@@ -52,6 +66,12 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
     );
 
     setState(() {});
+  }
+
+  void _cancelReminder() {
+    setState(() {
+      _taskModel.setReminder = null;
+    });
   }
 
   void _removeSubTask(int index) {
@@ -87,7 +107,9 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
           ? _taskModel.startTimeOfDay!
           : (type == "end" && _taskModel.endTime != null)
               ? _taskModel.endTimeOfDay!
-              : selectedTime,
+              : (type == "reminder" && _taskModel.reminder != null)
+                  ? _taskModel.reminderTimeOfDay!
+                  : selectedTime,
     );
 
     if (pickedTime != null) {
@@ -100,8 +122,23 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
         } else if (type == "end") {
           _taskModel.setEndTime = DateTime.now();
           _taskModel.setTime(type, selectedTime);
+        } else {
+          _taskModel.setReminder = DateTime.now();
+          _taskModel.setTime(type, selectedTime);
         }
       });
+    }
+  }
+
+  String _checkTimes() {
+    if (isFirstTimeOfDayBeforeOrEqual(
+        _taskModel.endTimeOfDay!, _taskModel.startTimeOfDay!)) {
+      return "endtime must be future";
+    } else if (isFirstTimeOfDayBeforeOrEqual(
+        _taskModel.startTimeOfDay!, _taskModel.reminderTimeOfDay!)) {
+      return "reminder must be before";
+    } else {
+      return "";
     }
   }
 
@@ -132,7 +169,12 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
             readOnly: true,
             hasSuffixIcon: true,
             onTap: () => showCustomDialog(
-              const SelectTagDialog(),
+              SelectTagDialog(
+                selectedId: (id) {
+                  _labelModel.setId = id;
+                  _taskModel.setLabel = _labelModel;
+                },
+              ),
               barrierDismissible: true,
             ),
             iconButtonSf: IconButton(
@@ -141,7 +183,9 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
                 color: Theme.of(context).disabledColor,
               ),
               onPressed: () => showCustomDialog(
-                const SelectTagDialog(),
+                SelectTagDialog(
+                  selectedId: (id) => _labelModel.setId = id,
+                ),
                 barrierDismissible: true,
               ),
             ),
@@ -155,6 +199,7 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
           CustomTextFormInput(
             focusNode: _taskFocusNode,
             hintText: "Input text name",
+            onSaved: (value) => _taskModel.setTitle = value,
           ),
           const SizedBox(height: 16),
           textBuilder(
@@ -162,7 +207,9 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
             textType: TextType.header_5,
           ),
           const SizedBox(height: 16),
-          const SelectableTaskTags(),
+          SelectableTaskTags(
+            selectedPriority: (selected) => _taskModel.setPriority = selected,
+          ),
           const SizedBox(height: 16),
           textBuilder(
             "Choose Time",
@@ -217,6 +264,7 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
             focusNode: _descriptionFocusNode,
             hintText: "Why am I doing this task?",
             maxLines: 4,
+            onSaved: (value) => _taskModel.setDescription = value,
           ),
           const SizedBox(height: 16),
           textBuilder(
@@ -224,7 +272,28 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
             textType: TextType.header_5,
           ),
           const SizedBox(height: 16),
-          const Reminder(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Reminder(
+                onTap: () => _selectTime(
+                  _reminderTime ?? TimeOfDay.now(),
+                  "reminder",
+                ),
+                time: _taskModel.formattedReminder,
+              ),
+              if (_taskModel.reminder != null)
+                Container(
+                  margin: const EdgeInsets.only(right: 8),
+                  child: CustomAppIcon(
+                    icon: Icons.cancel,
+                    color: MyColors.red,
+                    isPressableIcon: true,
+                    onPressed: _cancelReminder,
+                  ),
+                ),
+            ],
+          ),
           const SizedBox(height: 32),
           CustomButton(
             text: "Create Task",

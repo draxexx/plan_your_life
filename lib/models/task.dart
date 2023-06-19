@@ -76,7 +76,12 @@ class TaskModel {
   String? get description => _description;
   set setDescription(String? description) => _description = description;
   DateTime? get reminder => _reminder;
+  TimeOfDay? get reminderTimeOfDay => _reminder == null
+      ? null
+      : TimeOfDay(hour: _reminder!.hour, minute: _reminder!.minute);
   set setReminder(DateTime? reminder) => _reminder = reminder;
+  String? get formattedReminder =>
+      _reminder == null ? null : DateFormat("HH:mm").format(_reminder!);
   int? get status => _status;
   set setStatus(int? status) => _status = status;
 
@@ -86,6 +91,9 @@ class TaskModel {
           _startTime!.day, time.hour, time.minute);
     } else if (type == "end") {
       _endTime = DateTime(_endTime!.year, _endTime!.month, _endTime!.day,
+          time.hour, time.minute);
+    } else {
+      _reminder = DateTime(_reminder!.year, _reminder!.month, _reminder!.day,
           time.hour, time.minute);
     }
   }

@@ -1,14 +1,26 @@
 import '../../../../index.dart';
 
 class SelectableTaskTags extends StatefulWidget {
-  const SelectableTaskTags({super.key});
+  const SelectableTaskTags({
+    super.key,
+    required this.selectedPriority,
+  });
+
+  final Function(int) selectedPriority;
 
   @override
   State<SelectableTaskTags> createState() => _SelectableTaskTagsState();
 }
 
 class _SelectableTaskTagsState extends State<SelectableTaskTags> {
-  int? _selected = 0;
+  int _selected = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.selectedPriority(_selected);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,6 +30,7 @@ class _SelectableTaskTagsState extends State<SelectableTaskTags> {
             setState(() {
               _selected = 0;
             });
+            widget.selectedPriority(_selected);
           },
           child: Label(
             text: "LOW",
@@ -31,6 +44,7 @@ class _SelectableTaskTagsState extends State<SelectableTaskTags> {
             setState(() {
               _selected = 1;
             });
+            widget.selectedPriority(_selected);
           },
           child: Label(
             text: "MEDIUM",
@@ -44,6 +58,7 @@ class _SelectableTaskTagsState extends State<SelectableTaskTags> {
             setState(() {
               _selected = 2;
             });
+            widget.selectedPriority(_selected);
           },
           child: Label(
             text: "HIGH",
