@@ -12,8 +12,6 @@ class ChartsScreen extends StatelessWidget {
           SizedBox(height: 64),
           AccomplishmentRate(),
           SizedBox(height: 48),
-          PersonalSkills(),
-          SizedBox(height: 48),
           TaskOverview(),
           SizedBox(height: 48),
           WorkingHours(),

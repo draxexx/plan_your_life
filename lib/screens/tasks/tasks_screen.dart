@@ -83,7 +83,7 @@ class _TasksScreenState extends State<TasksScreen>
                           ),
                         ];
                       },
-                    )
+                    ),
                   ],
                 ),
               ),

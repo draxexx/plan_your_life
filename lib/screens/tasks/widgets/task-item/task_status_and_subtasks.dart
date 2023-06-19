@@ -37,6 +37,34 @@ class TaskStatusAndSubtasks extends StatelessWidget {
             ),
           ],
         ),
+        PopupMenuButton(
+          padding: const EdgeInsets.all(0),
+          onSelected: (value) {
+            if (value == "0") {
+              print("Edit");
+            } else if (value == "1") {
+              print("Delete");
+            }
+          },
+          itemBuilder: (BuildContext bc) {
+            return const [
+              PopupMenuItem(
+                value: '0',
+                child: Text("Edit"),
+              ),
+              PopupMenuItem(
+                value: '1',
+                child: Text("Delete"),
+              ),
+            ];
+          },
+          child: const SizedBox(
+            child: CustomAppIcon(
+              icon: Icons.more_horiz,
+              color: MyColors.grayLight,
+            ),
+          ),
+        ),
       ],
     );
   }
