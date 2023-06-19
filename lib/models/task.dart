@@ -60,15 +60,35 @@ class TaskModel {
   int? get priority => _priority;
   set setPriority(int? priority) => _priority = priority;
   DateTime? get startTime => _startTime;
+  TimeOfDay? get startTimeOfDay => _startTime == null
+      ? null
+      : TimeOfDay(hour: _startTime!.hour, minute: _startTime!.minute);
   set setStartTime(DateTime? startTime) => _startTime = startTime;
+  String? get formattedStartTime =>
+      _startTime == null ? null : DateFormat("HH:mm").format(_startTime!);
   DateTime? get endTime => _endTime;
+  TimeOfDay? get endTimeOfDay => _endTime == null
+      ? null
+      : TimeOfDay(hour: _endTime!.hour, minute: _endTime!.minute);
   set setEndTime(DateTime? endTime) => _endTime = endTime;
+  String? get formattedEndTime =>
+      _endTime == null ? null : DateFormat("HH:mm").format(_endTime!);
   String? get description => _description;
   set setDescription(String? description) => _description = description;
   DateTime? get reminder => _reminder;
   set setReminder(DateTime? reminder) => _reminder = reminder;
   int? get status => _status;
   set setStatus(int? status) => _status = status;
+
+  void setTime(String type, TimeOfDay time) {
+    if (type == "start") {
+      _startTime = DateTime(_startTime!.year, _startTime!.month,
+          _startTime!.day, time.hour, time.minute);
+    } else if (type == "end") {
+      _endTime = DateTime(_endTime!.year, _endTime!.month, _endTime!.day,
+          time.hour, time.minute);
+    }
+  }
 
   TaskModel.fromJson(Map<String, dynamic> json) {
     _id = json['id'];

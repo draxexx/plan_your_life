@@ -26,13 +26,13 @@ class DBHelper {
           "CREATE TABLE labels (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
       //subtasks table
       await db.execute(
-          "CREATE TABLE subtasks (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, order INTEGER, task_id INTEGER)");
+          "CREATE TABLE subtasks (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, order INTEGER, status INTEGER, task_id INTEGER)");
     }, version: 1);
   }
 
-  //ADDICTION OPERATIONS START
+  //ADD TASK
 
-  // Future<int> addTask(Addiction object) async {
+  // Future<int> addTask(TaskModel object) async {
   //   final db = await database;
   //   var addictionID = 0;
 

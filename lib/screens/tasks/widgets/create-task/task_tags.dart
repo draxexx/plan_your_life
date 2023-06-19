@@ -8,7 +8,7 @@ class SelectableTaskTags extends StatefulWidget {
 }
 
 class _SelectableTaskTagsState extends State<SelectableTaskTags> {
-  int? _selected;
+  int? _selected = 0;
   @override
   Widget build(BuildContext context) {
     return Row(
