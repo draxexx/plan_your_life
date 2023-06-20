@@ -1,11 +1,11 @@
 import '../index.dart';
 
-class TaskController extends GetxController {
-  TaskOperations task = TaskOperations();
+class LabelController extends GetxController {
+  LabelOperations label = LabelOperations();
 
-  Future<ResponseModel> addTask(TaskModel taskModel) async {
+  Future<ResponseModel> addLabel(LabelModel labelModel) async {
     try {
-      var response = await task.addTask(taskModel);
+      var response = await label.addLabel(labelModel);
 
       if (response == -1) {
         return ResponseModel(
@@ -16,7 +16,7 @@ class TaskController extends GetxController {
 
       return ResponseModel(
         status: "success",
-        message: "The task has been created successfully.",
+        message: "The label has been created successfully.",
       );
     } catch (e) {
       // ignore: avoid_print

@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
   // ===============================================================
   //ignore: unused_field
   final TaskController _taskController = Get.put(TaskController());
+  //ignore: unused_field
+  final LabelController _labelController = Get.put(LabelController());
   // ===============================================================
   // =========== END APP-WISE CONTROLLER INITIALIZATIONS ===========
   // ===============================================================
