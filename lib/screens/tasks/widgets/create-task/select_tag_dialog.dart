@@ -3,10 +3,10 @@ import '../../../../index.dart';
 class SelectTagDialog extends StatefulWidget {
   const SelectTagDialog({
     super.key,
-    required this.selectedId,
+    required this.selectedLabel,
   });
 
-  final Function(int) selectedId;
+  final Function(LabelModel) selectedLabel;
 
   @override
   State<SelectTagDialog> createState() => _SelectTagDialogState();
@@ -21,22 +21,41 @@ class _SelectTagDialogState extends State<SelectTagDialog> {
 
   final LabelModel _labelModel = LabelModel();
 
-  bool _isLoading = false;
+  bool _isLoading = true;
+  bool _submitLoading = false;
 
   void _submit() async {
     _formKey.currentState!.save();
 
     setState(() {
-      _isLoading = true;
+      _submitLoading = true;
     });
 
     var result = await _labelController.addLabel(_labelModel);
 
     setState(() {
-      _isLoading = false;
+      _submitLoading = false;
     });
 
     print(result.status);
+  }
+
+  Future<void> _fetchAllLabels() async {
+    await _labelController.getAllLabels();
+  }
+
+  void _loadData() async {
+    await _fetchAllLabels();
+
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
   }
 
   @override
@@ -87,27 +106,29 @@ class _SelectTagDialogState extends State<SelectTagDialog> {
                     textType: TextType.subText3,
                   ),
                   const SizedBox(height: 16),
-                  Container(
-                    constraints: BoxConstraints(
-                      maxHeight: SizeConfig.screenHeight! * .3,
-                    ),
-                    child: SingleChildScrollView(
-                      child: Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: [
-                          for (int i = 0; i < 100; i++)
-                            GestureDetector(
-                              onTap: () {
-                                widget.selectedId(1);
-                                Get.back();
-                              },
-                              child: const Label(text: "UI DESIGN"),
+                  _isLoading
+                      ? const CircularProgressIndicator()
+                      : Container(
+                          constraints: BoxConstraints(
+                            maxHeight: SizeConfig.screenHeight! * .3,
+                          ),
+                          child: SingleChildScrollView(
+                            child: Wrap(
+                              spacing: 8,
+                              runSpacing: 8,
+                              children: [
+                                for (var i in _labelController.labelList!)
+                                  GestureDetector(
+                                    onTap: () {
+                                      widget.selectedLabel(i);
+                                      Get.back();
+                                    },
+                                    child: Label(text: i.name!),
+                                  ),
+                              ],
                             ),
-                        ],
-                      ),
-                    ),
-                  ),
+                          ),
+                        ),
                   const SizedBox(height: 8),
                   const Divider(
                     thickness: 1,
@@ -123,7 +144,7 @@ class _SelectTagDialogState extends State<SelectTagDialog> {
                   CustomButton(
                     text: "Add Tag",
                     onPressed: _submit,
-                    isLoadingIndicatorDisplayed: _isLoading,
+                    isLoadingIndicatorDisplayed: _submitLoading,
                   ),
                 ],
               ),

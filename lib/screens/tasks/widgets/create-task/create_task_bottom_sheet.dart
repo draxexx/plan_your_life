@@ -29,7 +29,6 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
   final FocusNode _descriptionFocusNode = FocusNode();
 
   final TaskModel _taskModel = TaskModel();
-  final LabelModel _labelModel = LabelModel();
 
   TimeOfDay? _startTime;
   TimeOfDay? _endTime;
@@ -203,12 +202,13 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
             hintText: "Select tag",
             readOnly: true,
             hasSuffixIcon: true,
+            controller: TextEditingController(
+              text: _taskModel.label == null ? "" : _taskModel.label!.name,
+            ),
             onTap: () => showCustomDialog(
               SelectTagDialog(
-                selectedId: (id) {
-                  _labelModel.setId = id;
-                  _taskModel.setLabel = _labelModel;
-                },
+                selectedLabel: (label) =>
+                    setState(() => _taskModel.setLabel = label),
               ),
               barrierDismissible: true,
             ),
@@ -219,7 +219,8 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
               ),
               onPressed: () => showCustomDialog(
                 SelectTagDialog(
-                  selectedId: (id) => _labelModel.setId = id,
+                  selectedLabel: (label) =>
+                      setState(() => _taskModel.setLabel = label),
                 ),
                 barrierDismissible: true,
               ),

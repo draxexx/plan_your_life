@@ -10,8 +10,8 @@ class TaskTags extends StatelessWidget {
         GestureDetector(
           onTap: () => showCustomDialog(
             SelectTagDialog(
-              selectedId: (id) {
-                print(id);
+              selectedLabel: (label) {
+                print(label);
               },
             ),
             barrierDismissible: true,

@@ -13,4 +13,17 @@ class LabelOperations {
 
     return returnID;
   }
+
+  Future<dynamic> getAllLabels() async {
+    final db = await DBHelper.db.database;
+    const String sql = "select id, name from labels";
+    var res = await db.rawQuery(sql);
+
+    if (res.isEmpty) {
+      return null;
+    } else {
+      var resMap = res;
+      return resMap.isNotEmpty ? resMap : Null;
+    }
+  }
 }
