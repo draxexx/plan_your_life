@@ -1,7 +1,34 @@
 import '../../../../index.dart';
 
-class TaskItem extends StatelessWidget {
+class TaskItem extends StatefulWidget {
   const TaskItem({super.key});
+
+  @override
+  State<TaskItem> createState() => _TaskItemState();
+}
+
+class _TaskItemState extends State<TaskItem> {
+  Future<void> _updateStartTime() async {
+    var pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+
+    if (pickedTime != null) {
+      var selectedTime = pickedTime;
+    }
+  }
+
+  Future<void> _updateEndTime() async {
+    var pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+
+    if (pickedTime != null) {
+      var selectedTime = pickedTime;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,10 +37,30 @@ class TaskItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          textBuilder(
-            "9.00 AM - 1.00 PM",
-            textType: TextType.subText2,
-            color: Theme.of(context).disabledColor,
+          Row(
+            children: [
+              GestureDetector(
+                onTap: _updateStartTime,
+                child: textBuilder(
+                  "9.00 AM",
+                  textType: TextType.subText2,
+                  color: Theme.of(context).disabledColor,
+                ),
+              ),
+              textBuilder(
+                " - ",
+                textType: TextType.subText2,
+                color: Theme.of(context).disabledColor,
+              ),
+              GestureDetector(
+                onTap: _updateEndTime,
+                child: textBuilder(
+                  "1.00 PM",
+                  textType: TextType.subText2,
+                  color: Theme.of(context).disabledColor,
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 8),
           Container(
