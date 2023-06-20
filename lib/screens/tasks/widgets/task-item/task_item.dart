@@ -11,7 +11,7 @@ class TaskItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           textBuilder(
-            "9.00 AM",
+            "9.00 AM - 1.00 PM",
             textType: TextType.subText2,
             color: Theme.of(context).disabledColor,
           ),
@@ -34,9 +34,15 @@ class TaskItem extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 8),
-                textBuilder(
-                  "Designing Mobile Application",
-                  textType: TextType.header_5,
+                GestureDetector(
+                  onTap: () => showCustomDialog(
+                    const TaskTitleEditDialog(),
+                    barrierDismissible: true,
+                  ),
+                  child: textBuilder(
+                    "Designing Mobile Application",
+                    textType: TextType.header_5,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 const TaskProgress(),

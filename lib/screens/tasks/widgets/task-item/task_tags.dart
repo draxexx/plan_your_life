@@ -5,11 +5,28 @@ class TaskTags extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Label(text: "UI DESIGN"),
-        SizedBox(width: 8),
-        Label(text: "HIGH", color: MyColors.red20, textColor: MyColors.red),
+        GestureDetector(
+          onTap: () => showCustomDialog(
+            SelectTagDialog(
+              selectedId: (id) {
+                print(id);
+              },
+            ),
+            barrierDismissible: true,
+          ),
+          child: const Label(text: "UI DESIGN"),
+        ),
+        const SizedBox(width: 8),
+        GestureDetector(
+          onTap: () => showCustomDialog(
+            const PriorityEditTask(),
+            barrierDismissible: true,
+          ),
+          child: const Label(
+              text: "HIGH", color: MyColors.red20, textColor: MyColors.red),
+        ),
       ],
     );
   }

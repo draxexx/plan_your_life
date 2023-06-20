@@ -8,45 +8,14 @@ class TaskStatusAndSubtasks extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
-            const CustomAppIcon(
-              icon: Icons.check_circle,
-              color: MyColors.green,
-              size: 18,
-            ),
-            const SizedBox(width: 4),
-            textBuilder(
-              "Done",
-              color: MyColors.green,
-              textType: TextType.subText1,
-            ),
-          ],
-        ),
-        GestureDetector(
-          onTap: () => showCustomBottomSheet(
-            child: const SubTaskListBottomSheet(),
-          ),
-          child: Row(
-            children: [
-              textBuilder(
-                "SubTasks",
-                textType: TextType.subText1,
-                color: MyColors.grayLight,
-              ),
-              const CustomAppIcon(
-                icon: Icons.keyboard_arrow_down,
-                color: MyColors.grayLight,
-                size: 18,
-              ),
-            ],
-          ),
-        ),
+        const TaskStatus(status: 0),
         PopupMenuButton(
           padding: const EdgeInsets.all(0),
           onSelected: (value) {
             if (value == "0") {
-              print("Edit");
+              showCustomBottomSheet(
+                child: const SubTaskListBottomSheet(),
+              );
             } else if (value == "1") {
               print("Delete");
             }
@@ -55,7 +24,7 @@ class TaskStatusAndSubtasks extends StatelessWidget {
             return const [
               PopupMenuItem(
                 value: '0',
-                child: Text("Edit"),
+                child: Text("Subtasks"),
               ),
               PopupMenuItem(
                 value: '1',
