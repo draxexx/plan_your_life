@@ -10,6 +10,7 @@ class TaskModel {
   String? _description;
   DateTime? _reminder;
   int? _status;
+  List<SubtaskModel>? _subtaskList;
 
   TaskModel({
     int? id,
@@ -21,6 +22,7 @@ class TaskModel {
     String? description,
     DateTime? reminder,
     int? status,
+    List<SubtaskModel>? subtaskList,
   }) {
     if (id != null) {
       _id = id;
@@ -48,6 +50,9 @@ class TaskModel {
     }
     if (status != null) {
       _status = status;
+    }
+    if (subtaskList != null) {
+      _subtaskList = subtaskList;
     }
   }
 
@@ -84,6 +89,9 @@ class TaskModel {
       _reminder == null ? null : DateFormat("HH:mm").format(_reminder!);
   int? get status => _status;
   set setStatus(int? status) => _status = status;
+  List<SubtaskModel>? get subtaskList => _subtaskList;
+  set setSubtaskList(List<SubtaskModel>? subtaskList) =>
+      _subtaskList = subtaskList;
 
   void setTime(String type, TimeOfDay time) {
     if (type == "start") {
@@ -111,6 +119,13 @@ class TaskModel {
     _reminder =
         json['reminder'] != null ? DateTime.parse(json['reminder']) : null;
     _status = json['status'];
+
+    if (json['subtasks'] != null) {
+      _subtaskList = <SubtaskModel>[];
+      json['subtasks'].forEach((v) {
+        _subtaskList!.add(SubtaskModel.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -126,6 +141,10 @@ class TaskModel {
     data['description'] = _description;
     data['reminder'] = _reminder.toString();
     data['status'] = _status;
+
+    if (_subtaskList != null) {
+      data['subtasks'] = _subtaskList!.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }

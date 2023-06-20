@@ -22,6 +22,8 @@ class CreateTaskForm extends StatefulWidget {
 class _CreateTaskFormState extends State<CreateTaskForm> {
   final _formKey = GlobalKey<FormState>();
 
+  final TaskController _taskController = Get.find();
+
   final FocusNode _labelFocusNode = FocusNode();
   final FocusNode _taskFocusNode = FocusNode();
   final FocusNode _descriptionFocusNode = FocusNode();
@@ -33,17 +35,35 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
   TimeOfDay? _endTime;
   TimeOfDay? _reminderTime;
 
+  bool _isLoading = false;
+
   final List<SubTaskInputItem> _subTaskInputs = [];
   final List<String> _subTaskInputsValues = [];
 
   void _submit() async {
-    for (var i in _subTaskInputsValues) {
-      print(i);
+    final List<SubtaskModel> subTaskList = [];
+
+    for (int i = 0; i < _subTaskInputsValues.length; i++) {
+      print(_subTaskInputsValues[i]);
+      SubtaskModel subtask = SubtaskModel(
+        title: _subTaskInputsValues[i],
+        order: i,
+        status: 0,
+      );
+      subTaskList.add(subtask);
     }
 
     _formKey.currentState!.save();
 
     print(_checkTimes());
+
+    _taskModel.setSubtaskList = subTaskList;
+
+    print("*********");
+
+    for (var i in _taskModel.subtaskList!) {
+      print(i.title);
+    }
 
     print(_taskModel.label!.id);
     print(_taskModel.title);
@@ -52,6 +72,18 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
     print(_taskModel.endTime);
     print(_taskModel.description);
     print(_taskModel.reminder);
+
+    setState(() {
+      _isLoading = true;
+    });
+
+    var result = await _taskController.addTask(_taskModel);
+
+    setState(() {
+      _isLoading = false;
+    });
+
+    print(result.status);
   }
 
   void _addSubTask() {
@@ -131,11 +163,14 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
   }
 
   String _checkTimes() {
-    if (isFirstTimeOfDayBeforeOrEqual(
-        _taskModel.endTimeOfDay!, _taskModel.startTimeOfDay!)) {
+    if (_taskModel.startTimeOfDay != null &&
+        _taskModel.endTimeOfDay != null &&
+        isFirstTimeOfDayBeforeOrEqual(
+            _taskModel.endTimeOfDay!, _taskModel.startTimeOfDay!)) {
       return "endtime must be future";
-    } else if (isFirstTimeOfDayAfter(
-        _taskModel.reminderTimeOfDay!, _taskModel.startTimeOfDay!)) {
+    } else if (_taskModel.reminderTimeOfDay != null &&
+        isFirstTimeOfDayAfter(
+            _taskModel.reminderTimeOfDay!, _taskModel.startTimeOfDay!)) {
       return "reminder must be before or equal";
     } else {
       return "";
@@ -298,6 +333,7 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
           CustomButton(
             text: "Create Task",
             onPressed: _submit,
+            isLoadingIndicatorDisplayed: _isLoading,
           ),
         ],
       ),

@@ -1,11 +1,20 @@
 import './index.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  // ===============================================================
+  // ============= APP-WISE CONTROLLER INITIALIZATIONS =============
+  // ===============================================================
+  //ignore: unused_field
+  final TaskController _taskController = Get.put(TaskController());
+  // ===============================================================
+  // =========== END APP-WISE CONTROLLER INITIALIZATIONS ===========
+  // ===============================================================
 
   @override
   Widget build(BuildContext context) {
