@@ -1,7 +1,9 @@
 import '../../../index.dart';
 
 class TasksList extends StatelessWidget {
-  const TasksList({super.key});
+  TasksList({super.key});
+
+  final TaskController _taskController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,10 @@ class TasksList extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          for (int i = 0; i < 3; i++) const TaskItem(),
+          for (var i in _taskController.taskList!)
+            TaskItem(
+              taskModel: i,
+            ),
         ],
       ),
     );

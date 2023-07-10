@@ -9,9 +9,12 @@ class TasksScreen extends StatefulWidget {
 
 class _TasksScreenState extends State<TasksScreen>
     with TickerProviderStateMixin {
+  final TaskController _taskController = Get.find();
   TabController? _tabController;
 
   int _activeIndex = 0;
+
+  bool _isLoading = true;
 
   void _setActiveIndex() {
     _tabController!.addListener(() {
@@ -21,7 +24,15 @@ class _TasksScreenState extends State<TasksScreen>
     });
   }
 
-  void _setTabBar() {
+  Future<void> _loadData() async {
+    await _taskController.getAllTasks();
+
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  void _setTabBar() async {
     _tabController = TabController(
       length: 3,
       vsync: this,
@@ -29,6 +40,7 @@ class _TasksScreenState extends State<TasksScreen>
     );
 
     _setActiveIndex();
+    await _loadData();
   }
 
   @override
@@ -132,14 +144,18 @@ class _TasksScreenState extends State<TasksScreen>
                 color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: topBorderRadius,
               ),
-              child: TabBarView(
-                controller: _tabController,
-                children: const [
-                  TasksList(),
-                  TasksList(),
-                  TasksList(),
-                ],
-              ),
+              child: _isLoading
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : TabBarView(
+                      controller: _tabController,
+                      children: [
+                        TasksList(),
+                        TasksList(),
+                        TasksList(),
+                      ],
+                    ),
             ),
           ),
         ],

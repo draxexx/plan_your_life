@@ -20,7 +20,7 @@ class DBHelper {
         onCreate: (db, version) async {
       //tasks table
       await db.execute(
-        "CREATE TABLE tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, label_id INTEGER, priority INTEGER, start_time DATETIME, end_time DATETIME, description TEXT, reminder DATETIME, status)",
+        "CREATE TABLE tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, label_id INTEGER, priority INTEGER, start_time DATETIME, end_time DATETIME, description TEXT, reminder DATETIME, status INTEGER)",
       );
       //labels table
       await db.execute(

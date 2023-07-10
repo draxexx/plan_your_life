@@ -1,7 +1,12 @@
 import '../../../../index.dart';
 
 class TaskItem extends StatefulWidget {
-  const TaskItem({super.key});
+  const TaskItem({
+    super.key,
+    required this.taskModel,
+  });
+
+  final TaskModel taskModel;
 
   @override
   State<TaskItem> createState() => _TaskItemState();
@@ -87,7 +92,7 @@ class _TaskItemState extends State<TaskItem> {
                     barrierDismissible: true,
                   ),
                   child: textBuilder(
-                    "Designing Mobile Application",
+                    widget.taskModel.title!,
                     textType: TextType.header_5,
                   ),
                 ),

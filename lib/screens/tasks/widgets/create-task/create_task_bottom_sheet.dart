@@ -58,19 +58,7 @@ class _CreateTaskFormState extends State<CreateTaskForm> {
 
     _taskModel.setSubtaskList = subTaskList;
 
-    print("*********");
-
-    for (var i in _taskModel.subtaskList!) {
-      print(i.title);
-    }
-
-    print(_taskModel.label!.id);
-    print(_taskModel.title);
-    print(_taskModel.priority);
-    print(_taskModel.startTime);
-    print(_taskModel.endTime);
-    print(_taskModel.description);
-    print(_taskModel.reminder);
+    _taskModel.setStatus = 0;
 
     setState(() {
       _isLoading = true;

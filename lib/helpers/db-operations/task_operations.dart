@@ -37,4 +37,17 @@ class TaskOperations {
 
     return taskID;
   }
+
+  Future<dynamic> getAllTasks() async {
+    final db = await DBHelper.db.database;
+    const String sql = "select json_group_object(id) as result from tasks";
+    var res = await db.rawQuery(sql);
+
+    if (res.isEmpty) {
+      return null;
+    } else {
+      var resMap = res;
+      return resMap.isNotEmpty ? resMap : Null;
+    }
+  }
 }
