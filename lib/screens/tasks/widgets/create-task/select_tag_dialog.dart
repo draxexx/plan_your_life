@@ -41,7 +41,7 @@ class _SelectTagDialogState extends State<SelectTagDialog> {
   }
 
   Future<void> _fetchAllLabels() async {
-    await _labelController.getAllLabels();
+    // await _labelController.getAllLabels();
   }
 
   void _loadData() async {
