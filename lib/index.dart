@@ -20,6 +20,7 @@ export 'package:percent_indicator/percent_indicator.dart';
 export 'package:fl_chart/fl_chart.dart';
 export 'package:sqflite/sqflite.dart';
 export 'package:intl/intl.dart' show DateFormat;
+export 'package:flutter_dotenv/flutter_dotenv.dart';
 // =============================================
 // ============ LOCAL FILES EXPORT =============
 // =============================================

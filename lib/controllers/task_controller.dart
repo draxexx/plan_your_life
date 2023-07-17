@@ -32,36 +32,26 @@ class TaskController extends GetxController {
     }
   }
 
-  // Future<ResponseModel> getAllTasks() async {
-  //   _taskList.clear();
+  Future<ResponseModel> getAllTasks() async {
+    _taskList.clear();
 
-  //   try {
-  //     var response = await task.getAllTasks();
+    try {
+      var response = await getRequest(path: "/tasks");
 
-  //     if (response == null) {
-  //       return ResponseModel(
-  //         status: "error",
-  //         message: "There is an error occurred, please try it again.",
-  //       );
-  //     }
+      if (response.data != null) {
+        for (var i in response.data) {
+          _taskList.add(TaskModel.fromJson(i));
+        }
+      }
 
-  //     print(response);
-
-  //     for (var i in response) {
-  //       _taskList.add(TaskModel.fromJson(i));
-  //     }
-
-  //     return ResponseModel(
-  //       status: "success",
-  //       message: "All tasks fetched successfully.",
-  //     );
-  //   } catch (e) {
-  //     // ignore: avoid_print
-  //     print("error: ${e.toString()}");
-  //     return ResponseModel(
-  //       status: "error",
-  //       message: "There is an error occurred, please try it again.",
-  //     );
-  //   }
-  // }
+      return response;
+    } catch (e) {
+      // ignore: avoid_print
+      print("error: ${e.toString()}");
+      return ResponseModel(
+        status: "error",
+        message: "There is an error occurred, please try it again.",
+      );
+    }
+  }
 }

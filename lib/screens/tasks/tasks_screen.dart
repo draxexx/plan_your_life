@@ -25,7 +25,7 @@ class _TasksScreenState extends State<TasksScreen>
   }
 
   Future<void> _loadData() async {
-    // await _taskController.getAllTasks();
+    await _taskController.getAllTasks();
 
     setState(() {
       _isLoading = false;

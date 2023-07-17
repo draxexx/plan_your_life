@@ -6,6 +6,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return const MyBottomBar();
+    // return const MyBottomBar();
+    return const LoginScreen();
   }
 }
